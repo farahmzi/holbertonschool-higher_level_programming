@@ -1,6 +1,7 @@
+#!/usr/bin/python3
 def safe_print_integer(value):
     try:
-        print("{:d}".format(value))  # محاولة الطباعة كعدد صحيح
+        print("{:d}".format(value))
         return True
-    except (ValueError, TypeError):  # إذا لم يكن value يصلح لـ :d
+    except (ValueError, TypeError):
         return False
