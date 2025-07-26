@@ -1,9 +1,6 @@
-#!/usr/bin/python3
-def search_replace(my_list, search, replace):
-    new = []
-    for i in my_list:
-        if i == search:
-            new.append(replace)
-        else:
-            new.append(i)
-    return new
+def safe_print_integer(value):
+    try:
+        print("{:d}".format(value))  # محاولة الطباعة كعدد صحيح
+        return True
+    except (ValueError, TypeError):  # إذا لم يكن value يصلح لـ :d
+        return False
