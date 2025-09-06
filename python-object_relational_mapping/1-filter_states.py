@@ -1,39 +1,17 @@
 #!/usr/bin/python3
-"""Lists states starting with 'N' from hbtn_0e_0_usa, ordered by id."""
-
-import sys
+"""
+script that lists all states with a name starting with N from the database hbtn_0e_0_usa
+"""
 import MySQLdb
-
-
-def main():
-    """Connect to MySQL and print (id, name) for matching states."""
-    user, passwd, dbname = sys.argv[1], sys.argv[2], sys.argv[3]
-
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=user,
-        passwd=passwd,
-        db=dbname,
-        charset="utf8",
-    )
-    cur = conn.cursor()
-
-    # TODO: Make the predicate case-sensitive for uppercase N
-    query = (
-        "SELECT id, name FROM states "
-        "WHERE "  # <-- fill with condition that matches names starting with uppercase N
-        "ORDER BY id ASC;"
-    )
-    cur.execute(query)
-
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-
-    cur.close()
-    conn.close()
-
+import sys
 
 if __name__ == "__main__":
-    main()
+    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    query_rows = cursor.fetchall()
+    for row in query_rows:
+        print(row)
+    cursor.close()
+    db.close()
