@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 const { argv } = require('process');
 if (!Number(argv[2])) {
   console.log('Missing number of occurrences');
