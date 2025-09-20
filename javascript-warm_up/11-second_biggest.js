@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 const { argv } = require('process');
 if (!argv[2] || !argv[3]) {
   console.log(0);

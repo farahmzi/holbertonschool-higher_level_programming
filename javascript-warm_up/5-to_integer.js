@@ -1,5 +1,4 @@
-#!/usr/bin/env node
-const { argv } = require('process');
+#!/usr/bin/env nodeconst { argv } = require('process');
 if (Number(argv[2])) {
   console.log(`My number: ${Number(argv[2])}`);
 } else {
