@@ -1,14 +1,9 @@
 #!/usr/bin/node
-const { argv } = require('process');
-if (!argv[2] || !argv[3]) {
-  console.log(0);
-} else if (Number(argv[2]) === 1 && !argv[3]) {
+const args = process.argv.slice(2).map(Number);
+
+if (args.length < 2) {
   console.log(0);
 } else {
-  const arr = [];
-  for (let i = 2; i < argv.length; i++) {
-    arr.push(argv[i]);
-  }
-  arr.sort((a, b) => b - a);
-  console.log(arr[1]);
+  const sorted = args.sort((a, b) => b - a);
+  console.log(sorted[1]);
 }

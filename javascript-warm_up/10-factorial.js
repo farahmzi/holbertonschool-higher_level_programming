@@ -1,15 +1,9 @@
 #!/usr/bin/node
-const { argv } = require('process');
-
-if (!argv[2]) {
-  console.log(1);
-}
-function recursiveFactorial (num) {
-  if (num === 1) {
-    return num;
+function factorial (n) {
+  if (isNaN(n) || n <= 0) {
+    return 1;
   }
-  return num * recursiveFactorial(num - 1);
+  return n * factorial(n - 1);
 }
 
-const number = recursiveFactorial(Number(argv[2]));
-console.log(number);
+console.log(factorial(Number(process.argv[2])));
